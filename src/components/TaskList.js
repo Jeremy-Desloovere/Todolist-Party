@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useStore } from '../store'
 import { BsTrash3, BsCheckLg } from 'react-icons/bs';
 import { RxCross1 } from 'react-icons/rx';
@@ -7,10 +7,26 @@ import { RxCross1 } from 'react-icons/rx';
 const TaskList = () => {
     const taskList = useStore((state) => state.taskList)
     const deleteTask = useStore((state) => state.deleteTask)
+    const updateTask = useStore((state) => state.updateTask)
     const toggleTask = useStore((state) => state.toggleTask)
 
     const notDoneTasksList = taskList.filter((task) => !task.done);
     const doneTasksList = taskList.filter((task) => task.done);
+
+    const [editableTaskId, setEditableTaskId] = useState(null);
+
+    const handleLabelClick = (taskId) => {
+        setEditableTaskId(taskId);
+    };
+
+    const handleLabelChange = (e, taskId) => {
+        updateTask(taskId, e.target.value);
+    };
+
+    const handleLabelBlur = () => {
+        setEditableTaskId(null);
+    };
+
 
     return (
         <nav
@@ -23,7 +39,24 @@ const TaskList = () => {
                             <li
                                 key={task.id}
                                 className='notdonetask'>
-                                <p>{task.label}</p>
+                                <p onClick={() => handleLabelClick(task.id)}>
+                                    {editableTaskId === task.id ? (
+                                        <input
+                                            type="text"
+                                            value={task.label}
+                                            onChange={(e) => handleLabelChange(e, task.id)}
+                                            onBlur={handleLabelBlur}
+                                            autoFocus
+                                            onKeyDown={(evt) => {
+                                                if ((evt.key === 'Enter')) {
+                                                    handleLabelBlur();
+                                                }
+                                            }}
+                                        />
+                                    ) : (
+                                        task.label
+                                    )}
+                                </p>
                                 <span
                                     className='flex'>
                                     <BsCheckLg
@@ -52,7 +85,19 @@ const TaskList = () => {
                             <li
                                 key={task.id}
                                 className='donetask'>
-                                <p >{task.label}</p>
+                                <p onClick={() => handleLabelClick(task.id)}>
+                                    {editableTaskId === task.id ? (
+                                        <input
+                                            type="text"
+                                            value={task.label}
+                                            onChange={(e) => handleLabelChange(e, task.id)}
+                                            onBlur={handleLabelBlur}
+                                            autoFocus
+                                        />
+                                    ) : (
+                                        task.label
+                                    )}
+                                </p>
                                 <span
                                     className='flex'>
                                     <RxCross1

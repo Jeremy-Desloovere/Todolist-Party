@@ -34,6 +34,21 @@ export const useStore = create((set, get) => ({
         });
 
     },
+    updateTask: (taskid, newname) => {
+        // console.log("update")
+        // console.log(taskid)
+        // console.log(newname)
+
+        set({
+            taskList: get().taskList.map((task) => {
+                if (task.id === taskid) {
+                    task.label = newname;
+                }
+                return task;
+            }),
+        });
+    },
+
     deleteTask: (taskid) => {
         console.log("delete")
         set({

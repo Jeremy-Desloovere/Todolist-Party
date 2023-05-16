@@ -3,17 +3,26 @@ import FormAddTask from './FormAddTask';
 import CounterTask from './CounterTask';
 import TaskList from './TaskList';
 import Title from './Title';
+import { motion } from "framer-motion"
+
 
 
 const Todolist = () => {
     return (
-        <section
+        <motion.div
+            drag
+            // dragConstraints={{
+            //     top: -50,
+            //     left: -50,
+            //     right: 50,
+            //     bottom: 50,
+            // }}
             className='todolist'>
             <Title />
             <CounterTask />
             <FormAddTask />
             <TaskList />
-        </section>
+        </motion.div>
     )
 }
 
