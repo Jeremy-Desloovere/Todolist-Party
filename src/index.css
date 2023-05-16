@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +15,51 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.btn {
+  @apply rounded-full bg-gradient-to-t from-mainBg  to-transparent p-2
+  h-1/2
+}
+
+h1 {
+  @apply text-3xl  text-textColor
+}
+
+}
+
+
+@layer components {
+
+  .todolist
+  {
+    @apply    flex flex-col justify-center items-center my-10  mt-5 bg-darkColor m-3 p-3 rounded
+  }
+  .title
+  {
+    @apply  text-xl text-white m-2 p-2 border-b-2
+  }
+  .counter
+  {
+    @apply    p-4 text-lg text-cyan-300  pt-5
+  }
+  .formadd
+  {
+    @apply  my-5  max-w-full
+  }
+  .formadd-input
+  {
+    @apply  p-3 bg-gray-300 w-2/3
+  }
+  .notdonetask
+  {
+    @apply  border-b-2 flex items-center justify-between my-4 rounded p-4 text-lg bg-orange-200 
+  }
+  .donetask
+  {
+    @apply  border-b-2 flex items-center justify-between my-4 rounded p-4 text-lg bg-orange-500 line-through
+  }
+
+
+
 }
