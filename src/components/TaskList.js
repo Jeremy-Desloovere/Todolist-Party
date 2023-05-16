@@ -25,16 +25,16 @@ const TaskList = () => {
                                 className='notdonetask'>
                                 <p>{task.label}</p>
                                 <span
-                                    className=''>
-                                    <BsTrash3
-                                        className='ml-3 inline cursor-pointer '
-                                        size="1.5em"
-                                        onClick={() => deleteTask(task.id)}
-                                    />
+                                    className='flex'>
                                     <BsCheckLg
-                                        className='ml-3 inline cursor-pointer'
+                                        className='icon'
                                         size="1.5em"
                                         onClick={() => toggleTask(task.id)}
+                                    />
+                                    <BsTrash3
+                                        className='icon '
+                                        size="1.5em"
+                                        onClick={() => deleteTask(task.id)}
                                     />
 
 
@@ -54,18 +54,18 @@ const TaskList = () => {
                                 className='donetask'>
                                 <p >{task.label}</p>
                                 <span
-                                    className=''>
+                                    className='flex'>
+                                    <RxCross1
+                                        className='icon'
+                                        size="1.5em"
+                                        onClick={() => toggleTask(task.id)}
+                                    />
                                     <BsTrash3
-                                        className='ml-3 inline cursor-pointer '
+                                        className='icon '
                                         size="1.5em"
                                         onClick={() => deleteTask(task.id)}
                                     />
 
-                                    <RxCross1
-                                        className='ml-3 inline cursor-pointer'
-                                        size="1.5em"
-                                        onClick={() => toggleTask(task.id)}
-                                    />
 
 
                                 </span>
