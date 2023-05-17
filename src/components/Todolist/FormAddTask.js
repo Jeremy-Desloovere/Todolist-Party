@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { useStore } from '../store'
+import { useStoreTodoList } from '../../storeTodoList';
 
 
-const FormAddTask = () => {
+const FormAddTask = ({ listId }) => {
 
-    const addTask = useStore((state) => state.addTask)
+    const addTask = useStoreTodoList((state) => state.addTask)
 
     const [inputValue, setInputValue] = useState('');
 
@@ -18,14 +18,14 @@ const FormAddTask = () => {
                 name='inputTask'
                 className="formadd-input "
                 placeholder="Ajouter une tâche"
-                maxlength="50"
+                maxLength="42"
                 value={inputValue}
                 onChange={(e) => {
                     setInputValue(e.target.value);
                 }}
                 onKeyDown={(evt) => {
                     if ((evt.key === 'Enter') && (inputValue !== '')) {
-                        addTask(inputValue);
+                        addTask(listId, inputValue);
                         setInputValue('');
 
                     }
@@ -35,7 +35,7 @@ const FormAddTask = () => {
                 className="p-3 bg-gray-700 text-white"
                 onClick={() => {
                     if (inputValue !== '') {
-                        addTask(inputValue);
+                        addTask(listId, inputValue);
                         setInputValue('');
                     }
                 }}

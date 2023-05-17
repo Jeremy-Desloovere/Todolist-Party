@@ -10,6 +10,12 @@ module.exports = {
         textColor: 'white',
         textDoneColor: 'pink',
         mainBg: '#282c34',
+        btnBlue: '#87CEFA',
+        btnGreen: '#66CDAA',
+        btnGray: '#A9A9A9',
+        btnRed: '#FA8072',
+        btnPink: '#FFB6C1',
+        btnYellow: '#F0E68C',
       }
     },
   },

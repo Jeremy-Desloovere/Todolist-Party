@@ -6,9 +6,30 @@ const DragZone = () => {
     const constraintsRef = useRef(null)
 
     return (
-        <main ref={constraintsRef}>
+        <main
+            ref={constraintsRef}>
             <Todolist
-                constraints={constraintsRef} />
+                constraints={constraintsRef}
+                listId={0}
+            />
+            <Todolist
+                constraints={constraintsRef}
+                listId={1}
+            />
+            {/* <Todolist
+                constraints={constraintsRef}
+            />
+            <Todolist
+                constraints={constraintsRef}
+            />
+            <Todolist
+                constraints={constraintsRef}
+            />
+            <Todolist
+                constraints={constraintsRef}
+            /> */}
+
+
         </main>
     )
 }

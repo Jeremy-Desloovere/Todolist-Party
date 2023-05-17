@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => {
     return (
         <footer>
-            <p>Todolist by JD - 2023</p>
+            <p>Todolist Jérémy Desloovere - 2023</p>
         </footer>
     )
 }

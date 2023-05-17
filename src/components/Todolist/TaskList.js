@@ -1,17 +1,23 @@
 import React, { useState } from 'react'
-import { useStore } from '../store'
 import { BsTrash3, BsCheckLg } from 'react-icons/bs';
 import { RxCross1 } from 'react-icons/rx';
+import { useStoreTodoList } from '../../storeTodoList';
 
 
-const TaskList = () => {
-    const taskList = useStore((state) => state.taskList)
-    const deleteTask = useStore((state) => state.deleteTask)
-    const updateTask = useStore((state) => state.updateTask)
-    const toggleTask = useStore((state) => state.toggleTask)
+const TaskList = ({ listId }) => {
+    const todoLists = useStoreTodoList((state) => state.todoLists)
+    const taskList = todoLists.find((list) => list.id === listId)?.taskList || [];
+
+
+
+    const deleteTask = useStoreTodoList((state) => state.deleteTask)
+    const updateTask = useStoreTodoList((state) => state.updateTask)
+    const toggleTask = useStoreTodoList((state) => state.toggleTask)
 
     const notDoneTasksList = taskList.filter((task) => !task.done);
+    // console.log(notDoneTasksList)
     const doneTasksList = taskList.filter((task) => task.done);
+    // console.log(doneTasksList)
 
     const [editableTaskId, setEditableTaskId] = useState(null);
 
@@ -20,7 +26,7 @@ const TaskList = () => {
     };
 
     const handleLabelChange = (e, taskId) => {
-        updateTask(taskId, e.target.value);
+        updateTask(listId, taskId, e.target.value);
     };
 
     const handleLabelBlur = () => {
@@ -62,12 +68,12 @@ const TaskList = () => {
                                     <BsCheckLg
                                         className='icon'
                                         size="1.5em"
-                                        onClick={() => toggleTask(task.id)}
+                                        onClick={() => toggleTask(listId, task.id)}
                                     />
                                     <BsTrash3
                                         className='icon '
                                         size="1.5em"
-                                        onClick={() => deleteTask(task.id)}
+                                        onClick={() => deleteTask(listId, task.id)}
                                     />
 
 
@@ -103,12 +109,12 @@ const TaskList = () => {
                                     <RxCross1
                                         className='icon'
                                         size="1.5em"
-                                        onClick={() => toggleTask(task.id)}
+                                        onClick={() => toggleTask(listId, task.id)}
                                     />
                                     <BsTrash3
                                         className='icon '
                                         size="1.5em"
-                                        onClick={() => deleteTask(task.id)}
+                                        onClick={() => deleteTask(listId, task.id)}
                                     />
 
 
