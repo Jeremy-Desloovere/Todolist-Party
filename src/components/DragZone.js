@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Todolist from './Todolist';
 
 
 const DragZone = () => {
+    const constraintsRef = useRef(null)
+
     return (
-        <main>
-            <Todolist />
+        <main ref={constraintsRef}>
+            <Todolist
+                constraints={constraintsRef} />
         </main>
     )
 }

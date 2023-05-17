@@ -27,7 +27,7 @@ h1 {
 }
 
 main{
-  @apply p-3 h-[85vh]
+  @apply m-3 h-[85vh]
 }
 
 header{
@@ -36,7 +36,7 @@ header{
 }
 
 footer{
-  @apply text-white h-[5vh] absolute bottom-0 w-full  bg-mainBg flex  items-center justify-center
+  @apply text-white h-[2vh] absolute bottom-0 w-full  bg-mainBg flex  items-center justify-center
 
 }
 

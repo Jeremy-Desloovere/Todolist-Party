@@ -7,10 +7,11 @@ import { motion } from "framer-motion"
 
 
 
-const Todolist = () => {
+const Todolist = ({ constraints }) => {
     return (
         <motion.div
             drag
+            dragConstraints={constraints}
             // dragConstraints={{
             //     left: 0,
             //     right: 300,
