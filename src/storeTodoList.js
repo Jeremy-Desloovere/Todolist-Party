@@ -4,7 +4,9 @@ import { v4 as uuidv4 } from 'uuid';
 export const useStoreTodoList = create((set, get) => ({
     todoLists: [
         {
-            id: 0,
+            id: 1,
+            title: "Todolist n°1",
+            color: "bg-darkColor",
             taskList: [
                 {
                     id: 0,
@@ -24,7 +26,9 @@ export const useStoreTodoList = create((set, get) => ({
             ],
         },
         {
-            id: 1,
+            id: 2,
+            title: "Todolist n°2",
+            color: "bg-darkColor",
             taskList: [
                 {
                     id: 0,
@@ -147,6 +151,33 @@ export const useStoreTodoList = create((set, get) => ({
             return taskList.filter((task) => !task.done).length;
         }
         return 0;
+    },
+
+    setTitle: (listId, title) => {
+        set((state) => ({
+            todoLists: state.todoLists.map((list) => {
+                if (list.id === listId) {
+                    return {
+                        ...list,
+                        title: title,
+                    };
+                }
+                return list;
+            }),
+        }));
+    },
+    setColor: (listId, color) => {
+        set((state) => ({
+            todoLists: state.todoLists.map((list) => {
+                if (list.id === listId) {
+                    return {
+                        ...list,
+                        color: color,
+                    };
+                }
+                return list;
+            }),
+        }));
     },
 }))
 

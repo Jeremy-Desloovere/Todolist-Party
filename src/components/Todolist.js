@@ -6,15 +6,22 @@ import Title from './Todolist/Title';
 import { motion } from "framer-motion"
 import { useStoreGlobal } from '../storeGlobal';
 import ColorTodolist from './Todolist/ColorTodolist';
+import { useStoreTodoList } from '../storeTodoList';
 
 
 
 const Todolist = ({ constraints, listId }) => {
+    const todoLists = useStoreTodoList((state) => state.todoLists)
+    const colorTodoList = todoLists.find((list) => list.id === listId)?.color || '';
+
+
     const zIndexMax = useStoreGlobal((state) => state.zIndexMax);
     const upZindexMax = useStoreGlobal((state) => state.upZindexMax);
     const [zIndex, setZIndex] = useState(1);
 
 
+    let classNameTodoList = "todolist " + colorTodoList;
+    console.log(classNameTodoList);
 
 
     //TODO! : pb de Zindex à résoudre
@@ -28,7 +35,7 @@ const Todolist = ({ constraints, listId }) => {
                 setZIndex(zIndexMax);
 
             }}
-            className='todolist'
+            className={classNameTodoList}
             style={{
                 zIndex: zIndex,
             }}

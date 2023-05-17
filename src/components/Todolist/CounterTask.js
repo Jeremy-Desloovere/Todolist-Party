@@ -4,7 +4,6 @@ import { useStoreTodoList } from '../../storeTodoList';
 const CounterTask = ({ listId }) => {
 
     const countTasksToDo = useStoreTodoList((state) => state.countTasksToDo);
-
     const counterTaskToDo = countTasksToDo(listId);
 
     return (

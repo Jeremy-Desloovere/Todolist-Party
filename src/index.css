@@ -48,7 +48,7 @@ footer{
 
   .todolist
   {
-    @apply  md:w-1/2 xl:w-1/4 flex flex-col justify-center items-center  bg-darkColor  p-3 rounded m-1
+    @apply  md:w-1/2 xl:w-1/4 flex flex-col justify-center items-center   p-3 rounded m-1
   }
   .title
   {

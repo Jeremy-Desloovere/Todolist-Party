@@ -15,9 +15,7 @@ const TaskList = ({ listId }) => {
     const toggleTask = useStoreTodoList((state) => state.toggleTask)
 
     const notDoneTasksList = taskList.filter((task) => !task.done);
-    // console.log(notDoneTasksList)
     const doneTasksList = taskList.filter((task) => task.done);
-    // console.log(doneTasksList)
 
     const [editableTaskId, setEditableTaskId] = useState(null);
 

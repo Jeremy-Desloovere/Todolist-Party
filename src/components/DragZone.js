@@ -10,11 +10,11 @@ const DragZone = () => {
             ref={constraintsRef}>
             <Todolist
                 constraints={constraintsRef}
-                listId={0}
+                listId={1}
             />
             <Todolist
                 constraints={constraintsRef}
-                listId={1}
+                listId={2}
             />
             {/* <Todolist
                 constraints={constraintsRef}
