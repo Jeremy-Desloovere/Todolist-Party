@@ -12,11 +12,13 @@ const Todolist = () => {
         <motion.div
             drag
             // dragConstraints={{
-            //     top: -50,
-            //     left: -50,
-            //     right: 50,
-            //     bottom: 50,
+            //     left: 0,
+            //     right: 300,
+            //     top: 0,
+            //     bottom: 0,
             // }}
+
+
             className='todolist'>
             <Title />
             <CounterTask />
