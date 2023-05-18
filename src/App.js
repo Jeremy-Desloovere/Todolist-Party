@@ -9,7 +9,7 @@ function App() {
 
 
   return (
-    <div className=" text-center">
+    <div className=" text-center flex flex-col justify-between">
       <Header />
       <DragZone />
       <Footer />

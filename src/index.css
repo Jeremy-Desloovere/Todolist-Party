@@ -27,7 +27,7 @@ h1 {
 }
 
 main{
-  @apply m-2 min-h-[85vh]
+  @apply m-2 min-h-[100vh]
 }
 
 header{
@@ -36,7 +36,7 @@ header{
 }
 
 footer{
-  @apply text-white h-[3vh] absolute bottom-0 w-full  bg-mainBg flex  items-center justify-center
+  @apply text-white h-[3vh]  w-full  bg-mainBg flex  items-center justify-center
 
 }
 
@@ -48,7 +48,7 @@ footer{
 
   .todolist
   {
-    @apply relative md:w-1/2 xl:w-1/4 flex flex-col justify-center items-center   p-3 rounded m-1
+    @apply border-solid border-2 relative md:w-1/2 xl:w-1/4 flex flex-col justify-center items-center   p-3 rounded m-1
   }
   .title
   {
@@ -83,8 +83,7 @@ footer{
   @apply rounded-full w-3 h-3 m-1
   }
   .divColorBtn{
-  @apply absolute flex right-1 top-1
-  }
+  @apply absolute flex right-1 top-1 bg-white rounded-lg  }
 
 
 

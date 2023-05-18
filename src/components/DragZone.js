@@ -16,18 +16,6 @@ const DragZone = () => {
                 constraints={constraintsRef}
                 listId={2}
             />
-            {/* <Todolist
-                constraints={constraintsRef}
-            />
-            <Todolist
-                constraints={constraintsRef}
-            />
-            <Todolist
-                constraints={constraintsRef}
-            />
-            <Todolist
-                constraints={constraintsRef}
-            /> */}
 
 
         </main>

@@ -21,10 +21,7 @@ const Todolist = ({ constraints, listId }) => {
 
 
     let classNameTodoList = "todolist " + colorTodoList;
-    // console.log(classNameTodoList);
 
-
-    //TODO! : pb de Zindex à résoudre
     return (
         <motion.div
             drag
