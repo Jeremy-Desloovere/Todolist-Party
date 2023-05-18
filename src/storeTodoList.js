@@ -170,6 +170,7 @@ export const useStoreTodoList = create((set, get) => ({
         set((state) => ({
             todoLists: state.todoLists.map((list) => {
                 if (list.id === listId) {
+                    console.log(list)
                     return {
                         ...list,
                         color: color,

@@ -21,7 +21,7 @@ const Todolist = ({ constraints, listId }) => {
 
 
     let classNameTodoList = "todolist " + colorTodoList;
-    console.log(classNameTodoList);
+    // console.log(classNameTodoList);
 
 
     //TODO! : pb de Zindex à résoudre
@@ -30,7 +30,7 @@ const Todolist = ({ constraints, listId }) => {
             drag
             dragConstraints={constraints}
             dragMomentum={false}
-            onDragStart={() => {
+            onClick={() => {
                 upZindexMax();
                 setZIndex(zIndexMax);
 
@@ -40,7 +40,9 @@ const Todolist = ({ constraints, listId }) => {
                 zIndex: zIndex,
             }}
         >
-            <ColorTodolist />
+            <ColorTodolist
+                listId={listId}
+            />
             <Title
                 listId={listId}
             />
