@@ -160,15 +160,25 @@ export const useStoreTodoList = create((set, get) => ({
         }));
     },
 
-    //! Ajouter une todolist
-    AddTodolist: () => {
-        // set((state) => ({
-        //     todoLists: state.todoLists.filter((list) => list.id !== listId)
-        // }));
+    addTodolist: (name) => {
+        const newTodolist = {
+            id: uuidv4(),
+            title: name,
+            color: "bg-darkColor",
+            taskList: [
+                {
+                    id: uuidv4(),
+                    label: "Ma première tâche",
+                    done: false,
+                },
+            ]
+        }
+        console.log(newTodolist);
 
+        set((state) => ({
+            todoLists: [...state.todoLists, newTodolist],
+        }));
     },
-
-    //! Supprimer une todolist
     deleteTodolist: (listId) => {
         set((state) => ({
             todoLists: state.todoLists.filter((list) => list.id !== listId)

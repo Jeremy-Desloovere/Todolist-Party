@@ -24,7 +24,6 @@ const HeaderTodolist = ({ listId }) => {
                     setIsModalOpen(true);
                 }}
                 color='white'
-
             />
 
             <Dialog

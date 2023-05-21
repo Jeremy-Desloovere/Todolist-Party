@@ -3,14 +3,15 @@ import Todolist from './Todolist/Todolist';
 import { useStoreTodoList } from '../storeTodoList';
 
 
+
 const DragZone = () => {
     const constraintsRef = useRef(null)
     const todoLists = useStoreTodoList((state) => state.todoLists)
 
+
     return (
         <main
             ref={constraintsRef}>
-
             {
                 todoLists.map((todoList) => {
                     return (
@@ -22,8 +23,6 @@ const DragZone = () => {
                     )
                 })
             }
-
-
         </main>
     )
 }

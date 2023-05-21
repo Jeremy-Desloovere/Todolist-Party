@@ -23,15 +23,15 @@ code {
 }
 
 h1 {
-  @apply text-3xl  text-textColor
+  @apply text-2xl md:text-3xl  text-textColor
 }
 
 main{
-  @apply m-2 min-h-[100vh]
+  @apply m-2 min-h-[100vh] 
 }
 
 header{
-  @apply   bg-mainBg flex items-center justify-center h-[10vh]
+  @apply bg-mainBg flex flex-col md:flex-row  h-auto md:justify-between md:items-center md:pr-6
 
 }
 
@@ -83,6 +83,12 @@ footer{
 @apply flex justify-between items-center w-full h-12
 }
 
+.iconAddTodolist{
+@apply w-5 h-5 mr-3 
+}
+.buttonNewTodolist{
+  @apply bg-white pt-4 md:bg-none md:pt-0 md:rounded-md
+}
 
 .closeTodolist{
 @apply w-8 h-8 
