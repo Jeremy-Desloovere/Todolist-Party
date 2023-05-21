@@ -52,7 +52,7 @@ footer{
   }
   .title
   {
-    @apply  text-xl text-white m-2 p-2 border-b-2
+    @apply  text-xl text-white  border-b-2
   }
   .counter
   {
@@ -78,12 +78,14 @@ footer{
   {
     @apply  sm:ml-3 inline cursor-pointer
   }
-  
-  
-  .divColorBtn{
-  @apply absolute  right-1 top-1    }
+
+.headerTodolist{
+@apply flex justify-between items-center w-full h-12
+}
 
 
-
+.closeTodolist{
+@apply w-8 h-8 
+}
 
 }

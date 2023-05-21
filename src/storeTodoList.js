@@ -87,27 +87,6 @@ export const useStoreTodoList = create((set, get) => ({
                 return list;
             }),
         }));
-
-        // updateTask: (listId, taskId, newName) => {
-        //     set((state) => ({
-        //         todoLists: state.todoLists.map((list) => {
-        //             if (list.id === listId) {
-        //                 return {
-        //                     ...list,
-        //                     taskList: list.taskList.map((task) => {
-        //                         if (task.id === taskId) {
-        //                             return {
-        //                                 ...task,
-        //                                 label: newName,
-        //                             };
-        //                         }
-        //                         return task;
-        //                     }),
-        //                 };
-        //             }
-        //             return list;
-        //         }),
-        //     }));
     },
 
     deleteTask: (listId, taskId) => {
@@ -178,6 +157,21 @@ export const useStoreTodoList = create((set, get) => ({
                 }
                 return list;
             }),
+        }));
+    },
+
+    //! Ajouter une todolist
+    AddTodolist: () => {
+        // set((state) => ({
+        //     todoLists: state.todoLists.filter((list) => list.id !== listId)
+        // }));
+
+    },
+
+    //! Supprimer une todolist
+    deleteTodolist: (listId) => {
+        set((state) => ({
+            todoLists: state.todoLists.filter((list) => list.id !== listId)
         }));
     },
 }))

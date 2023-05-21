@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
-import FormAddTask from './Todolist/FormAddTask';
-import CounterTask from './Todolist/CounterTask';
-import TaskList from './Todolist/TaskList';
-import Title from './Todolist/Title';
+import FormAddTask from './FormAddTask';
+import CounterTask from './CounterTask';
+import TaskList from './TaskList';
+import Title from './Title';
 import { motion } from "framer-motion"
-import { useStoreGlobal } from '../storeGlobal';
-import ColorTodolist from './Todolist/ColorTodolist';
-import { useStoreTodoList } from '../storeTodoList';
+import { useStoreGlobal } from '../../storeGlobal';
+import ColorTodolist from './ColorTodolist';
+import { useStoreTodoList } from '../../storeTodoList';
+import HeaderTodolist from './HeaderTodolist';
+
 
 
 
@@ -37,10 +39,7 @@ const Todolist = ({ constraints, listId }) => {
                 zIndex: zIndex,
             }}
         >
-            <ColorTodolist
-                listId={listId}
-            />
-            <Title
+            <HeaderTodolist
                 listId={listId}
             />
             <CounterTask
