@@ -50,6 +50,7 @@ const TaskList = ({ listId }) => {
                                             value={task.label}
                                             onChange={(e) => handleLabelChange(e, task.id)}
                                             onBlur={handleLabelBlur}
+                                            maxLength="25"
                                             autoFocus
                                             onKeyDown={(evt) => {
                                                 if ((evt.key === 'Enter')) {
@@ -96,6 +97,7 @@ const TaskList = ({ listId }) => {
                                             value={task.label}
                                             onChange={(e) => handleLabelChange(e, task.id)}
                                             onBlur={handleLabelBlur}
+                                            maxLength="40"
                                             autoFocus
                                         />
                                     ) : (

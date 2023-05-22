@@ -10,18 +10,18 @@ export const useStoreTodoList = create((set, get) => ({
             taskList: [
                 {
                     id: 0,
-                    label: "Créer une todolist",
+                    label: "Créer une application",
                     done: false,
                 },
                 {
                     id: 1,
-                    label: "Etre satisfait",
-                    done: true,
+                    label: "Tester son fonctionnement",
+                    done: false,
                 },
                 {
                     id: 2,
-                    label: "Apprendre autre techno",
-                    done: false,
+                    label: "Publier!",
+                    done: true,
                 },
             ],
         },
@@ -37,13 +37,8 @@ export const useStoreTodoList = create((set, get) => ({
                 },
                 {
                     id: 1,
-                    label: "Etre doublement satisfait",
+                    label: "Rajouter des tâches",
                     done: true,
-                },
-                {
-                    id: 2,
-                    label: "Apprendre encore une autre techno",
-                    done: false,
                 },
             ],
         },

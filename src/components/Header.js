@@ -11,6 +11,17 @@ const Header = () => {
     const [messageError, setMessageError] = useState('');
 
 
+    const handleAddTodolist = () => {
+        if (todoLists.length > 9)
+            return setMessageError("Le nombre de todolist maximum a été atteint.");
+        if (nameNewTodolist === '')
+            return setMessageError("Le nom ne peut pas être vide.");
+
+        setMessageError('');
+        addTodolist(nameNewTodolist);
+        setIsModalOpen(false);
+        setNameNewTodolist('');
+    }
 
     return (
         <header>
@@ -26,6 +37,7 @@ const Header = () => {
                     variant="contained"
                     onClick={(e) => {
                         setIsModalOpen(true);
+                        setMessageError('');
                     }}
                 >
                     <BsPlusCircle
@@ -52,13 +64,19 @@ const Header = () => {
                         autoFocus
                         margin="dense"
                         id="nameTodolist"
-                        label="Nouveau Titre"
+                        label="Nouvelle liste"
                         type="text"
                         size="20"
                         fullWidth
                         variant="standard"
                         onChange={(e) => {
                             setNameNewTodolist(e.target.value)
+                        }}
+                        onKeyDown={(evt) => {
+                            if (evt.key === 'Enter') {
+                                evt.preventDefault();
+                                handleAddTodolist();
+                            }
                         }}
                     />
                     {
@@ -78,17 +96,7 @@ const Header = () => {
                         }}>Annuler</Button>
                     <Button
                         variant="primary"
-                        onClick={(e) => {
-                            if (todoLists.length > 9)
-                                return setMessageError("Le nombre de todolist maximum a été atteint.");
-                            if (nameNewTodolist === '')
-                                return setMessageError("Le nom ne peut pas être vide.");
-
-                            setMessageError('');
-                            addTodolist(nameNewTodolist);
-                            setIsModalOpen(false);
-                            setNameNewTodolist('');
-                        }}
+                        onClick={(e) => { handleAddTodolist() }}
                         autoFocus>
                         Créer
                     </Button>
