@@ -5,11 +5,11 @@ const ColorTodolist = ({ listId }) => {
     const setColor = useStoreTodoList((state) => state.setColor)
 
     const colorOptions = [
+        { colorClass: 'bg-darkColor', icon: "⚫" },
         { colorClass: 'bg-btnBlue', icon: "🔵" },
         { colorClass: 'bg-btnGreen', icon: "🟢" },
         { colorClass: 'bg-btnRed', icon: "🔴" },
         { colorClass: 'bg-btnPurple', icon: "🟣" },
-        { colorClass: 'bg-darkColor', icon: "⚫" },
     ];
 
 

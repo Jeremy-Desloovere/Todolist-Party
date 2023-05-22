@@ -2,10 +2,8 @@ import React, { useState } from 'react'
 import FormAddTask from './FormAddTask';
 import CounterTask from './CounterTask';
 import TaskList from './TaskList';
-import Title from './Title';
 import { motion } from "framer-motion"
 import { useStoreGlobal } from '../../storeGlobal';
-import ColorTodolist from './ColorTodolist';
 import { useStoreTodoList } from '../../storeTodoList';
 import HeaderTodolist from './HeaderTodolist';
 

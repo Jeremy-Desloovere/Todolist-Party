@@ -131,6 +131,13 @@ export const useStoreTodoList = create((set, get) => ({
         }
         return 0;
     },
+    countTasks: (listId) => {
+        const taskList = get().todoLists.find((list) => list.id === listId)?.taskList;
+        if (taskList) {
+            return taskList.length;
+        }
+        return 0;
+    },
 
     setTitle: (listId, title) => {
         set((state) => ({
@@ -173,7 +180,6 @@ export const useStoreTodoList = create((set, get) => ({
                 },
             ]
         }
-        console.log(newTodolist);
 
         set((state) => ({
             todoLists: [...state.todoLists, newTodolist],

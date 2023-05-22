@@ -1,12 +1,14 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import { Alert, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material'
+import React, { useState } from 'react'
 import { BsPlusCircle } from 'react-icons/bs';
 import { useStoreTodoList } from '../storeTodoList';
 
 const Header = () => {
     const addTodolist = useStoreTodoList((state) => state.addTodolist)
+    const todoLists = useStoreTodoList((state) => state.todoLists)
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [nameNewTodolist, setNameNewTodolist] = useState('');
+    const [messageError, setMessageError] = useState('');
 
 
 
@@ -59,20 +61,33 @@ const Header = () => {
                             setNameNewTodolist(e.target.value)
                         }}
                     />
+                    {
+                        messageError &&
+                        (
+                            <Alert severity="error">{messageError}</Alert>
+                        )
+                    }
                 </DialogContent>
                 <DialogActions>
                     <Button
                         variant="secondary"
                         onClick={(e) => {
                             setIsModalOpen(false);
+                            setMessageError('');
+                            setNameNewTodolist('');
                         }}>Annuler</Button>
                     <Button
                         variant="primary"
                         onClick={(e) => {
-                            if (nameNewTodolist !== '') {
-                                addTodolist(nameNewTodolist);
-                                setIsModalOpen(false);
-                            }
+                            if (todoLists.length > 9)
+                                return setMessageError("Le nombre de todolist maximum a été atteint.");
+                            if (nameNewTodolist === '')
+                                return setMessageError("Le nom ne peut pas être vide.");
+
+                            setMessageError('');
+                            addTodolist(nameNewTodolist);
+                            setIsModalOpen(false);
+                            setNameNewTodolist('');
                         }}
                         autoFocus>
                         Créer
