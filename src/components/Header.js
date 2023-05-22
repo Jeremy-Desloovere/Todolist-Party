@@ -2,6 +2,7 @@ import { Alert, Button, Dialog, DialogActions, DialogContent, DialogContentText,
 import React, { useState } from 'react'
 import { BsPlusCircle } from 'react-icons/bs';
 import { useStoreTodoList } from '../storeTodoList';
+// import { logo } from '../../public/logo.png';
 
 const Header = () => {
     const addTodolist = useStoreTodoList((state) => state.addTodolist)
@@ -27,7 +28,7 @@ const Header = () => {
         <header>
             <h1>
                 <img
-                    className='w-28 inline' src="/logo.png" alt='logo' />TODOLIST Party
+                    className='w-28 inline' src="https://jeremy-desloovere.github.io/Todolist-Party/logo.png" alt='logo' />TODOLIST Party
             </h1>
             <div
                 className='buttonNewTodolist'
