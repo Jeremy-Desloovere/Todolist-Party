@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Jeremy-Desloovere/Todolist-Party/static/css/main.98d134c8.css",
-    "main.js": "/Jeremy-Desloovere/Todolist-Party/static/js/main.9c12f9f2.js",
-    "static/js/787.97a945da.chunk.js": "/Jeremy-Desloovere/Todolist-Party/static/js/787.97a945da.chunk.js",
-    "index.html": "/Jeremy-Desloovere/Todolist-Party/index.html",
-    "main.98d134c8.css.map": "/Jeremy-Desloovere/Todolist-Party/static/css/main.98d134c8.css.map",
-    "main.9c12f9f2.js.map": "/Jeremy-Desloovere/Todolist-Party/static/js/main.9c12f9f2.js.map",
-    "787.97a945da.chunk.js.map": "/Jeremy-Desloovere/Todolist-Party/static/js/787.97a945da.chunk.js.map"
+    "main.css": "/todolist-party/static/css/main.98d134c8.css",
+    "main.js": "/todolist-party/static/js/main.c291611c.js",
+    "static/js/787.97a945da.chunk.js": "/todolist-party/static/js/787.97a945da.chunk.js",
+    "index.html": "/todolist-party/index.html",
+    "main.98d134c8.css.map": "/todolist-party/static/css/main.98d134c8.css.map",
+    "main.c291611c.js.map": "/todolist-party/static/js/main.c291611c.js.map",
+    "787.97a945da.chunk.js.map": "/todolist-party/static/js/787.97a945da.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.98d134c8.css",
-    "static/js/main.9c12f9f2.js"
+    "static/js/main.c291611c.js"
   ]
 }
