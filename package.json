@@ -50,6 +50,5 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.3.2"
-  },
-  "homepage": "https://github.com/Jeremy-Desloovere/Todolist-Party"
+  }
 }
