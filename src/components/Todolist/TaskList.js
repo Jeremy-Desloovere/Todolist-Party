@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { BsTrash3, BsCheckLg } from 'react-icons/bs';
 import { RxCross1 } from 'react-icons/rx';
 import { useStoreTodoList } from '../../storeTodoList';
+import { Alert, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 
 
 const TaskList = ({ listId }) => {
@@ -17,18 +18,28 @@ const TaskList = ({ listId }) => {
     const notDoneTasksList = taskList.filter((task) => !task.done);
     const doneTasksList = taskList.filter((task) => task.done);
 
-    const [editableTaskId, setEditableTaskId] = useState(null);
+    const [editableTaskId, setEditableTaskId] = useState(false);
+    const [messageError, setMessageError] = useState('');
+    const [saveTaskName, setSaveTaskName] = useState('');
 
-    const handleLabelClick = (taskId) => {
+    const handleLabelClick = (taskId, label) => {
         setEditableTaskId(taskId);
+        setSaveTaskName(label);
     };
 
     const handleLabelChange = (e, taskId) => {
         updateTask(listId, taskId, e.target.value);
     };
 
-    const handleLabelBlur = () => {
-        setEditableTaskId(null);
+    const handleLabelBlur = (taskId, label) => {
+        if (label === '') {
+            setMessageError("La tâche ne peut pas être vide.");
+            updateTask(listId, taskId, saveTaskName);
+            setEditableTaskId(taskId);
+        }
+        else {
+            setEditableTaskId(false);
+        };
     };
 
 
@@ -43,18 +54,21 @@ const TaskList = ({ listId }) => {
                             <li
                                 key={task.id}
                                 className='notdonetask'>
-                                <p onClick={() => handleLabelClick(task.id)}>
+                                <p onClick={() => handleLabelClick(task.id, task.label)}>
                                     {editableTaskId === task.id ? (
                                         <input
                                             type="text"
                                             value={task.label}
-                                            onChange={(e) => handleLabelChange(e, task.id)}
-                                            onBlur={handleLabelBlur}
+                                            onChange={(e) => {
+                                                handleLabelChange(e, task.id)
+                                            }}
+                                            onBlur={() => handleLabelBlur(task.id, task.label)}
                                             maxLength="25"
                                             autoFocus
                                             onKeyDown={(evt) => {
                                                 if ((evt.key === 'Enter')) {
-                                                    handleLabelBlur();
+                                                    evt.preventDefault();
+                                                    handleLabelBlur(task.id, task.label);
                                                 }
                                             }}
                                         />
@@ -90,15 +104,21 @@ const TaskList = ({ listId }) => {
                             <li
                                 key={task.id}
                                 className='donetask'>
-                                <p onClick={() => handleLabelClick(task.id)}>
+                                <p onClick={() => handleLabelClick(task.id, task.label)}>
                                     {editableTaskId === task.id ? (
                                         <input
                                             type="text"
                                             value={task.label}
                                             onChange={(e) => handleLabelChange(e, task.id)}
-                                            onBlur={handleLabelBlur}
+                                            onBlur={() => handleLabelBlur(task.id, task.label)}
                                             maxLength="40"
                                             autoFocus
+                                            onKeyDown={(evt) => {
+                                                if ((evt.key === 'Enter')) {
+                                                    evt.preventDefault();
+                                                    handleLabelBlur(task.id, task.label);
+                                                }
+                                            }}
                                         />
                                     ) : (
                                         task.label
@@ -124,6 +144,38 @@ const TaskList = ({ listId }) => {
                         )
                     })}
             </ul>
+            <Dialog
+                open={!!messageError}
+                onClose={(e) => {
+                    setMessageError('');
+                }}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">
+                    {"Avertissement"}
+                </DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        {
+                            messageError &&
+                            (
+                                <Alert severity="error">{messageError}</Alert>
+                            )
+                        }
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button
+                        variant="primary"
+                        onClick={(e) => {
+                            setMessageError('');
+                        }}
+                        autoFocus>
+                        Fermer
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </nav>
     )
 }
