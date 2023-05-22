@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import { useStoreGlobal } from '../../storeGlobal';
 import { useStoreTodoList } from '../../storeTodoList';
 import HeaderTodolist from './HeaderTodolist';
-import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
 
 
 
