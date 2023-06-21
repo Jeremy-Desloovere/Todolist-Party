@@ -24,6 +24,11 @@ Todolist Party est une application de gestion de tâches construite avec React. 
 - gh-pages : déploiement
 
 
+
+## Wireframes Mobiles
+
+![Todolist Party mobile](https://github.com/Jeremy-Desloovere/Todolist-Party/assets/117832421/3fa6b00a-948d-4ce2-b3e7-090379631a66)
+
 J'espère que vous trouverez la Todolist Party utile pour gérer vos tâches quotidiennes.
 
 N'hésitez pas à me contacter si vous avez des questions ou des commentaires. Happy tasking!
